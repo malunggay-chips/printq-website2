@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PrintQ</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <h1>PrintQ</h1>
+    <p>Fast, easy printing — school-friendly</p>
+  </header>
+
+  <main>
+    <section id="upload-section" class="form-section">
+      <h2>Upload Your Print Files</h2>
+      <form id="printForm">
+        <label>Name:</label>
+        <input type="text" id="name" placeholder="Your name" required />
+
+        <label>Phone:</label>
+        <input type="tel" id="phone" placeholder="0917xxxxxxx" required />
+
+        <label>Pages / Images (per file total):</label>
+        <input type="number" id="pages" min="1" required />
+
+        <label>Copies:</label>
+        <input type="number" id="copies" min="1" required />
+
+        <label>Color Type:</label>
+        <div>
+          <label><input type="radio" name="color" value="bw" required /> Black & White (₱5/page)</label>
+          <label><input type="radio" name="color" value="color" /> Colored (₱10/page)</label>
+        </div>
+
+        <label>Fulfillment:</label>
+        <div>
+          <label><input type="radio" name="fulfill" value="pickup" required /> For Pickup</label>
+          <label><input type="radio" name="fulfill" value="delivery" /> For Delivery (+₱20)</label>
+        </div>
+
+        <div id="locationRow" class="hidden">
+          <label>Delivery Location:</label>
+          <input type="text" id="location" placeholder="Enter delivery address" />
+        </div>
+
+        <label>Upload File(s):</label>
+        <input type="file" id="files" multiple accept=".pdf,.doc,.docx,.jpg,.jpeg,.png" required />
+
+        <button type="button" id="calcBtn">Calculate</button>
+        <p id="calcResult"></p>
+
+        <button type="button" id="uploadPayBtn">Upload & Pay</button>
+      </form>
+    </section>
+
+    <!-- Popup -->
+    <div id="popup" class="popup hidden">
+      <div class="popup-content">
+        <h3>Print created</h3>
+        <p>Your unique Print ID:</p>
+        <div class="print-id-box">
+          <span id="printIdText">Print-0000</span>
+          <button id="copyBtn">Copy</button>
+        </div>
+        <p>Close this popup manually to proceed to payment.</p>
+        <button id="closePopupBtn" class="close-btn">Close</button>
+      </div>
+    </div>
+
+    <!-- Status Section -->
+    <section id="status-section" class="form-section">
+      <h2>Check Print Status</h2>
+      <input type="text" id="statusPrintId" placeholder="Enter your Print ID" />
+      <button id="checkStatusBtn">Check Status</button>
+      <p id="statusResult"></p>
+    </section>
+    <p id="debugOutput" style="color:red; font-size:0.85rem; white-space:pre-wrap; margin-top:1rem;"></p>
+  </main>
+
+  <footer>
+    <p>© 2025 PrintQ — Easy School Printing</p>
+  </footer>
+
+  <script type="module" src="js/config.js"></script>
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>
